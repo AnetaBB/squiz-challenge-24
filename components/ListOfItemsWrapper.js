@@ -1,29 +1,19 @@
+import { Table } from 'lucide-react';
+import { ColumnData } from './list-of-items/column-data';
+import { DataRow } from './list-of-items/data-row';
+import { TableHeaders } from './list-of-items/table-headers';
+
 export const ListOfItemsWrapper = ({ data }) => {
   const columnHeaders = Object.keys(data[0]);
-  console.log(data[0], columnHeaders);
 
   return (
     <>
       <table>
         <thead>
-          <tr>
-            {columnHeaders.map((columnHeader) => (
-              <th key={`key-${columnHeader}`}>{columnHeader}</th>
-            ))}
-          </tr>
+          <TableHeaders columnHeaders={columnHeaders} />
         </thead>
         <tbody>
-          {data.map((dataRow) => {
-            return (
-              <tr key={`rowKey-${dataRow.id}`}>
-                {columnHeaders.map((dataItem) => {
-                  return (
-                    <td key={`dataKey-${dataRow.id}`}>{dataRow[dataItem]}</td>
-                  );
-                })}
-              </tr>
-            );
-          })}
+          <DataRow data={data} columnHeaders={columnHeaders} />
         </tbody>
       </table>
     </>
