@@ -3,12 +3,14 @@
 import { useEffect, useState } from 'react';
 
 export const useTableData = (data) => {
+  //state variables that contain values that are controlled by controlls for sorting and filtering table data
   const [tableData, setTableData] = useState([]);
   const [countryFilter, setCountryFilter] = useState('');
   const [industryFilter, setIndustryFilter] = useState('');
   const [nameOrder, setNameOrder] = useState('');
   const [employeesOrder, setEmployeesOrder] = useState('');
 
+  // two static variables which contain lists for selects
   // making array of countries
   let countries = JSON.parse(localStorage.getItem('countries'));
   if (!countries && data) {
@@ -23,13 +25,12 @@ export const useTableData = (data) => {
     localStorage.setItem('industries', JSON.stringify(industries));
   }
 
+  //functions used by controlls for sorting and filtering, they affect state variables
   const changeCountryFilter = (value) => {
-    // localStorage.setItem('country-filter', value);
     setCountryFilter(value);
   };
 
   const changeIndustryFilter = (value) => {
-    // localStorage.setItem('industry-filter', value);
     setIndustryFilter(value);
   };
 
@@ -45,9 +46,6 @@ export const useTableData = (data) => {
     if (data) {
       setTableData([...data]);
     }
-
-    // localStorage.removeItem('country-filter');
-    // localStorage.removeItem('industry-filter');
   }, []);
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { AppWrapper } from '@/components/app-wrapper';
-
+//fetchnig data from API
 const getData = async () => {
   try {
     const response = await fetch(
@@ -13,6 +13,7 @@ const getData = async () => {
   }
 };
 
+//async function to get data from API and provide it to application
 export default async function Home() {
   const data = await getData();
 

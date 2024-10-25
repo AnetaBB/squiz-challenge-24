@@ -3,8 +3,8 @@
 import { ControlPanelWrapper } from '@/components/control-panel/control-panel-wrapper';
 import { ListOfItemsWrapper } from '@/components/ListOfItemsWrapper';
 import { useTableData } from '@/hooks/useTableData';
-import { useEffect, useMemo } from 'react';
 
+//initiating hook and provide handler to application
 export const AppWrapper = ({ data }) => {
   const tableDataHandler = useTableData(data);
   const { tableData } = tableDataHandler;
