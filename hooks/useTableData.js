@@ -12,18 +12,10 @@ export const useTableData = (data) => {
 
   // two static variables which contain lists for selects
   // making array of countries
-  let countries = JSON.parse(localStorage.getItem('countries'));
-  if (!countries && data) {
-    countries = [...new Set(data.map((dataItem) => dataItem.country))];
-    localStorage.setItem('countries', JSON.stringify(countries));
-  }
+  const countries = [...new Set(data.map((dataItem) => dataItem.country))];
 
   // making array of industries
-  let industries = JSON.parse(localStorage.getItem('industries'));
-  if (!industries && data) {
-    industries = [...new Set(data.map((dataItem) => dataItem.industry))];
-    localStorage.setItem('industries', JSON.stringify(industries));
-  }
+  const industries = [...new Set(data.map((dataItem) => dataItem.industry))];
 
   //functions used by controlls for sorting and filtering, they affect state variables
   const changeCountryFilter = (value) => {
